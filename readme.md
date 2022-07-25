@@ -502,7 +502,14 @@ export default function rehypeStarryNight(options = {}) {
             'highlight-' + scope.replace(/^source\./, '').replace(/\./g, '-')
           ]
         },
-        children: [{type: 'element', tagName: 'pre', properties: {}, children}]
+        children: [
+          {
+            type: 'element',
+            tagName: 'pre',
+            properties: {},
+            children: [{ type: 'element', tagName: 'code', properties: {}, children }]
+          }
+        ]
       })
     })
   }
@@ -534,8 +541,8 @@ Now running `node example.js` yields:
 ```html
 <h1>Hello</h1>
 <p>…world!</p>
-<div class="highlight highlight-js"><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>it works!<span class="pl-pds">'</span></span>)
-</pre></div>
+<div class="highlight highlight-js"><pre><code><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>it works!<span class="pl-pds">'</span></span>)
+</code></pre></div>
 ```
 
 ### Example: integrating with `markdown-it`
